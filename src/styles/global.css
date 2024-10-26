@@ -1,0 +1,17 @@
+@import '@fontsource/inter/variable.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-secondary rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300;
+  }
+}

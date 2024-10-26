@@ -1,16 +1,148 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
+import { Card } from '../components/Card';
+import { SITE, SOCIAL_LINKS } from '../consts';
+import { User, Code, Headphones, Github, Twitter, Map, Activity } from 'lucide-react';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Junior Developer Portfolio">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 max-w-6xl mx-auto bg-[#1a1b26] text-white">
+    <!-- Блок 1: Приветствие и аватар -->
+    <Card className="col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-2 flex flex-col">
+      <div class="flex items-center">
+        <div class="w-1/4 mr-4">
+          <img src="/avatar.png" alt="Avatar" class="w-full rounded-full" />
+        </div>
+        <div class="w-3/4">
+          <h1 class="text-xl font-bold text-[#ffd700] mb-2">Привет, я Ваше Имя!</h1>
+          <p class="text-sm text-gray-300">{SITE.DESCRIPTION}</p>
+        </div>
+      </div>
+    </Card>
+
+    <!-- Блок 2: Последний проект -->
+    <Card className="col-span-1 sm:col-span-2 md:col-span-1 lg:col-span-2">
+      <h2 class="text-lg font-bold text-[#ffd700] mb-2">Последний проект</h2>
+      <img src="/project-image.png" alt="Project Image" class="w-full h-32 object-cover rounded mb-2" />
+      <h3 class="font-semibold text-sm mb-1 text-gray-300">Название проекта</h3>
+      <p class="text-xs mb-2 text-gray-400">Краткое описание проекта</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-[#ffd700] text-[#1a1b26] px-2 py-1 rounded text-xs">React</span>
+        <span class="bg-[#ffd700] text-[#1a1b26] px-2 py-1 rounded text-xs">Node.js</span>
+        <span class="bg-[#ffd700] text-[#1a1b26] px-2 py-1 rounded text-xs">MongoDB</span>
+      </div>
+    </Card>
+
+    <!-- Блок 3: Discord статус -->
+    <Card className="col-span-1">
+      <h2 class="text-lg font-bold text-[#ffd700] mb-2 flex items-center gap-2">
+        <Activity className="w-4 h-4" /> Discord
+      </h2>
+      <div class="flex items-center">
+        <div class="w-2 h-2 rounded-full bg-green-500 mr-2"></div>
+        <span class="text-sm text-gray-300">Online</span>
+      </div>
+    </Card>
+
+    <!-- Блок 4: Другой проект -->
+    <Card className="col-span-1">
+      <h2 class="text-lg font-bold text-[#ffd700] mb-2">Другой проект</h2>
+      <img src="/another-project.png" alt="Another Project" class="w-full h-24 object-cover rounded mb-2" />
+      <div class="flex justify-between">
+        <button class="bg-[#ffd700] text-[#1a1b26] px-2 py-1 rounded text-xs">Подробнее</button>
+        <button class="bg-[#ffd700] text-[#1a1b26] px-2 py-1 rounded text-xs">Демо</button>
+      </div>
+    </Card>
+
+    <!-- Блок 5: Локация -->
+    <Card className="col-span-1">
+      <h2 class="text-lg font-bold text-[#ffd700] mb-2 flex items-center gap-2">
+        <Map className="w-4 h-4" /> Локация
+      </h2>
+      <div class="w-full h-32 bg-gray-700 rounded"></div>
+    </Card>
+
+    <!-- Блок 6: GitHub активность -->
+    <Card className="col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-2">
+      <h2 class="text-lg font-bold text-[#ffd700] mb-2 flex items-center gap-2">
+        <Github className="w-4 h-4" /> GitHub активность
+      </h2>
+      <div class="grid grid-cols-12 gap-1">
+        {Array(60).fill(0).map(() => (
+          <div class="w-full pb-[100%] bg-[#ffd700] opacity-30 rounded-sm"></div>
+        ))}
+      </div>
+    </Card>
+
+    <!-- Блок 7: Сейчас слушаю -->
+    <Card className="col-span-1">
+      <h2 class="text-lg font-bold text-[#ffd700] mb-2 flex items-center gap-2">
+        <Headphones className="w-4 h-4" /> Сейчас слушаю
+      </h2>
+      <div class="flex items-center">
+        <div class="w-10 h-10 bg-gray-700 mr-2 rounded"></div>
+        <div>
+          <p class="font-semibold text-xs text-gray-300">Название трека</p>
+          <p class="text-xs text-gray-400">Исполнитель</p>
+        </div>
+      </div>
+    </Card>
+
+    <!-- Блок 8: Навыки -->
+    <Card className="col-span-1">
+      <h2 class="text-lg font-bold text-[#ffd700] mb-2 flex items-center gap-2">
+        <Code className="w-4 h-4" /> Навыки
+      </h2>
+      <div class="space-y-2">
+        {['HTML', 'CSS', 'JavaScript', 'React', 'Node.js'].map((skill) => (
+          <div>
+            <span class="block text-xs mb-1 text-gray-300">{skill}</span>
+            <div class="w-full bg-gray-700 rounded-full h-1">
+              <div class="bg-[#ffd700] h-1 rounded-full" style={`width: ${Math.random() * 100}%`}></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </Card>
+
+    <!-- Блок 9: GitHub статистика -->
+    <Card className="col-span-1">
+      <h2 class="text-lg font-bold text-[#ffd700] mb-2">GitHub</h2>
+      <div class="space-y-1">
+        <div class="flex justify-between">
+          <span class="text-xs text-gray-300">Репозитории</span>
+          <span class="text-xs text-[#ffd700]">20</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-xs text-gray-300">Звезды</span>
+          <span class="text-xs text-[#ffd700]">50</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-xs text-gray-300">Фолловеры</span>
+          <span class="text-xs text-[#ffd700]">100</span>
+        </div>
+      </div>
+    </Card>
+
+    <!-- Блок 10: Twitter -->
+    <Card className="col-span-1">
+      <h2 class="text-lg font-bold text-[#ffd700] mb-2 flex items-center gap-2">
+        <Twitter className="w-4 h-4" /> Twitter
+      </h2>
+      <a href="#" class="text-sm text-blue-400 hover:underline">@your_twitter</a>
+    </Card>
+
+    <!-- Блок 11: Статистика кодинга -->
+    <Card className="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-4">
+      <h2 class="text-lg font-bold text-[#ffd700] mb-2">Статистика кодинга</h2>
+      <div class="flex justify-between items-end h-16">
+        {['HTML', 'CSS', 'JS', 'React', 'Node'].map((lang) => (
+          <div class="flex flex-col items-center">
+            <div class="w-3 bg-[#ffd700] mb-1" style={`height: ${Math.random() * 40 + 20}px`}></div>
+            <span class="text-xs text-gray-300">{lang}</span>
+          </div>
+        ))}
+      </div>
+    </Card>
+  </div>
+</Layout>

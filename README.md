@@ -1,3 +1,43 @@
+# My Portfolio
+
+Это мое личное портфолио, разработанное с использованием Astro и Tailwind CSS.
+
+## Особенности
+
+- Адаптивный дизайн
+- Темная тема
+- Секции для проектов, навыков и контактной информации
+- Интеграция с GitHub для отображения статистики кодинга
+
+## Технологии
+
+- [Astro](https://astro.build/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+
+## Установка
+
+1. Клонируйте репозиторий:
+   ```
+   git clone https://github.com/Horman69/my-portfolio.git
+   ```
+2. Перейдите в директорию проекта:
+   ```
+   cd my-portfolio
+   ```
+3. Установите зависимости:
+   ```
+   pnpm install
+   ```
+4. Запустите проект в режиме разработки:
+   ```
+   pnpm run dev
+   ```
+
+## Структура проекта
+
+
 # Astro Starter Kit: Minimal
 
 ```sh
