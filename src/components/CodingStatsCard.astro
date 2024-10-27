@@ -1,0 +1,31 @@
+---
+// Интерфейс для статистики по языку программирования
+interface CodingStat {
+    language: string;  // Название языка программирования
+    percentage: number;  // Процент использования языка
+}
+
+// Интерфейс для пропсов компонента
+interface Props {
+    stats: CodingStat[];  // Массив статистик по языкам программирования
+}
+
+// Получаем статистику из пропсов
+const { stats } = Astro.props;
+---
+
+<!-- Карточка со статистикой кодинга -->
+<div class="card col-span-4">
+    <h2 class="text-lg font-bold text-[#ffd700] mb-2">Статистика кодинга</h2>
+    <div class="flex justify-between items-end h-16">
+        {stats.map((stat) => (
+            <!-- Столбец для каждого языка программирования -->
+            <div class="flex flex-col items-center">
+                <!-- Визуальное представление процента использования языка -->
+                <div class="w-3 bg-[#ffd700] mb-1" style={`height: ${stat.percentage}px`}></div>
+                <!-- Название языка программирования -->
+                <span class="text-xs text-gray-300">{stat.language}</span>
+            </div>
+        ))}
+    </div>
+</div>

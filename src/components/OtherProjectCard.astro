@@ -1,0 +1,23 @@
+---
+// Определяем интерфейс для пропсов компонента
+interface Props {
+    title: string; // Название проекта
+    image: string; // Путь к изображению проекта
+}
+
+// Получаем данные из пропсов
+const { title, image } = Astro.props;
+---
+
+<!-- Карточка другого проекта -->
+<div class="card col-span-2 sm:col-span-1">
+    <!-- Заголовок карточки -->
+    <h2 class="text-lg font-bold text-[#ffd700] mb-2">Другой проект</h2>
+    <!-- Изображение проекта -->
+    <img src={image} alt={title} class="w-full h-24 object-cover rounded mb-2" loading="lazy" />
+    <!-- Кнопки действий -->
+    <div class="flex justify-between">
+        <button class="bg-[#ffd700] text-[#1a1b26] px-2 py-1 rounded text-xs">Подробнее</button>
+        <button class="bg-[#ffd700] text-[#1a1b26] px-2 py-1 rounded text-xs">Демо</button>
+    </div>
+</div>

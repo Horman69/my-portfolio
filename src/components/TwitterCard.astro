@@ -1,0 +1,22 @@
+---
+// Импортируем иконку Twitter из библиотеки lucide-react
+import { Twitter } from 'lucide-react';
+
+// Определяем интерфейс для пропсов компонента
+interface Props {
+    username: string; // Имя пользователя в Twitter
+}
+
+// Получаем имя пользователя из пропсов
+const { username } = Astro.props;
+---
+
+<!-- Карточка с ссылкой на Twitter профиль -->
+<div class="card col-span-2 sm:col-span-1">
+    <!-- Заголовок карточки с иконкой Twitter -->
+    <h2 class="text-lg font-bold text-[#ffd700] mb-2 flex items-center gap-2">
+        <Twitter className="w-4 h-4" /> Twitter
+    </h2>
+    <!-- Ссылка на Twitter профиль -->
+    <a href={`https://twitter.com/${username}`} class="text-sm text-blue-400 hover:underline">@{username}</a>
+</div>

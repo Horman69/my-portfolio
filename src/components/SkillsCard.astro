@@ -1,0 +1,39 @@
+---
+// Импортируем иконку кода из библиотеки lucide-react
+import { Code } from 'lucide-react';
+
+// Интерфейс для объекта навыка
+interface Skill {
+    name: string;  // Название навыка
+    level: number; // Уровень владения навыком (в процентах)
+}
+
+// Интерфейс для пропсов компонента
+interface Props {
+    skills: Skill[]; // Массив навыков
+}
+
+// Получаем навыки из пропсов
+const { skills } = Astro.props;
+---
+
+<!-- Карточка с навыками -->
+<div class="card col-span-2 sm:col-span-1">
+    <!-- Заголовок карточки с иконкой кода -->
+    <h2 class="text-lg font-bold text-[#ffd700] mb-2 flex items-center gap-2">
+        <Code className="w-4 h-4" /> Навыки
+    </h2>
+    <!-- Список навыков -->
+    <div class="space-y-2">
+        {skills.map((skill) => (
+            <div>
+                <!-- Название навыка -->
+                <span class="block text-xs mb-1 text-gray-300">{skill.name}</span>
+                <!-- Полоса прогресса для уровня навыка -->
+                <div class="w-full bg-gray-700 rounded-full h-1">
+                    <div class="bg-[#ffd700] h-1 rounded-full" style={`width: ${skill.level}%`}></div>
+                </div>
+            </div>
+        ))}
+    </div>
+</div>

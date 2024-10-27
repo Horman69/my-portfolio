@@ -1,0 +1,36 @@
+---
+// Импортируем иконку GitHub из библиотеки lucide-react
+import { Github } from 'lucide-react';
+
+// Определяем интерфейс для пропсов компонента
+interface Props {
+    repositories: number; // Количество репозиториев
+    stars: number; // Количество звезд
+    followers: number; // Количество подписчиков
+}
+
+// Получаем данные из пропсов
+const { repositories, stars, followers } = Astro.props;
+---
+
+<!-- Карточка со статистикой GitHub -->
+<div class="card col-span-2 sm:col-span-1">
+    <h2 class="text-lg font-bold text-[#ffd700] mb-2">GitHub статистика</h2>
+    <div class="space-y-1">
+        <!-- Строка с количеством репозиториев -->
+        <div class="flex justify-between">
+            <span class="text-xs text-gray-300">Репозитории</span>
+            <span class="text-xs text-[#ffd700]">{repositories}</span>
+        </div>
+        <!-- Строка с количеством звезд -->
+        <div class="flex justify-between">
+            <span class="text-xs text-gray-300">Звезды</span>
+            <span class="text-xs text-[#ffd700]">{stars}</span>
+        </div>
+        <!-- Строка с количеством подписчиков -->
+        <div class="flex justify-between">
+            <span class="text-xs text-gray-300">Фолловеры</span>
+            <span class="text-xs text-[#ffd700]">{followers}</span>
+        </div>
+    </div>
+</div>

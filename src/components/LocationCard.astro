@@ -1,0 +1,14 @@
+---
+// Импортируем иконку карты из библиотеки lucide-react
+import { Map } from 'lucide-react';
+---
+
+<!-- Карточка с информацией о местоположении -->
+<div class="card col-span-2 sm:col-span-1">
+    <!-- Заголовок карточки с иконкой карты -->
+    <h2 class="text-lg font-bold text-[#ffd700] mb-2 flex items-center gap-2">
+        <Map className="w-4 h-4" /> Локация
+    </h2>
+    <!-- Заглушка для карты или изображения местоположения -->
+    <div class="w-full h-32 bg-gray-700 rounded"></div>
+</div>
